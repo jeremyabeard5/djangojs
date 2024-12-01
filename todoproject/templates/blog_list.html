@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - To-Do App{% endblock %}
+
+{% block content %}
+<h1>Blog</h1>
+<ul class="list-group">
+    {% for post in posts %}
+        <li class="list-group-item">
+            <h3><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></h3>
+            <p>{{ post.created_at|date:"F d, Y" }}</p>
+            <p>{{ post.content|truncatewords:20 }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

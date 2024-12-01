@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
-from .models import Todo
+from .models import Todo, BlogPost
 
 # Create your views here.
 
@@ -56,3 +56,13 @@ def delete_todo(request, id):
         return JsonResponse({'id': id})
     
     return JsonResponse({'error': 'Only POST request is allowed'})
+
+# List of all blog posts
+def blog_list(request):
+    posts = BlogPost.objects.all().order_by('-created_at')
+    return render(request, 'blog_list.html', {'posts': posts})
+
+# Single blog post detail view
+def blog_detail(request, id):
+    post = get_object_or_404(BlogPost, id=id)
+    return render(request, 'blog_detail.html', {'post': post})
