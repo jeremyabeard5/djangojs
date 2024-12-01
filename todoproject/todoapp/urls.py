@@ -6,6 +6,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('services/', views.services, name='services'),
     path('todo', views.todo, name='todo'),
+    path('tableau/', views.tableau, name='tableau'),
     path('get_todos/', views.get_todos, name='get_todos'),
     path('add_todo/', views.add_todo, name='add_todo'),
     path('update_todo/<int:id>/', views.update_todo, name='update_todo'),

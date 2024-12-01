@@ -20,6 +20,10 @@ def contact(request):
 def services(request):
     return render(request, 'services.html')
 
+## Render the Tableau page
+def tableau(request):
+    return render(request, 'tableau.html')
+
 ## Get all todos
 def get_todos(request):
     todos = list(Todo.objects.values())
