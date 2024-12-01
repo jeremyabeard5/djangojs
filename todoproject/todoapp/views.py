@@ -8,6 +8,18 @@ from .models import Todo
 def index(request):
     return render(request, 'index.html')
 
+## Render the todo page
+def todo(request):
+    return render(request, 'todo.html')
+
+## Render the contact page
+def contact(request):
+    return render(request, 'contact.html')
+
+## Render the services page
+def services(request):
+    return render(request, 'services.html')
+
 ## Get all todos
 def get_todos(request):
     todos = list(Todo.objects.values())
