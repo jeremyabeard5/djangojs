@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
-from .models import Todo, BlogPost
+from .models import Todo, BlogPost, Media
 
 # Create your views here.
 
@@ -66,3 +66,7 @@ def blog_list(request):
 def blog_detail(request, id):
     post = get_object_or_404(BlogPost, id=id)
     return render(request, 'blog_detail.html', {'post': post})
+
+def media_feed(request):
+    photos = Media.objects.all().order_by('-uploaded_at')  # Latest first
+    return render(request, 'media_feed.html', {'photos': photos})

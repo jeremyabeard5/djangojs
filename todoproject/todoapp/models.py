@@ -18,3 +18,12 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+class Media(models.Model):
+    title = models.CharField(max_length=200)  # Title of the media
+    description = models.TextField(blank=True)  # Optional description
+    image = models.URLField()  # URL of the media file in GCS
+    uploaded_at = models.DateTimeField(auto_now_add=True)  # Timestamp
+
+    def __str__(self):
+        return self.title

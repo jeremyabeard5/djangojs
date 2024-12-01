@@ -5,5 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    "django-storages>=1.14.4",
     "django>=4.2.16",
+    "google-cloud-storage>=2.18.2",
 ]
