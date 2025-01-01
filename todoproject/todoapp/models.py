@@ -1,5 +1,4 @@
 from django.db import models
-from martor.models import MartorField
 
 # Create your models here.
 class Todo(models.Model):
