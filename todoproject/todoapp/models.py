@@ -1,4 +1,5 @@
 from django.db import models
+from martor.models import MartorField
 
 # Create your models here.
 class Todo(models.Model):
@@ -12,7 +13,7 @@ class Todo(models.Model):
     
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    content = MartorField() #models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
