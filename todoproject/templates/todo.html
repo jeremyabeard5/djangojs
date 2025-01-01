@@ -16,7 +16,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
-
 <script>
     // Fetch all todos
     function fetchTodos() {
@@ -45,7 +44,7 @@
     $('#add-todo-form').on('submit', function (e) {
         e.preventDefault();
         const title = $('#todo-title').val();
-        $.post('/add_todo/', { title: title }, function (data) {
+        $.post('/add_todo/', { title: title, csrfmiddlewaretoken: csrftoken }, function (data) {
             $('#todo-title').val('');
             fetchTodos();
         });
@@ -53,14 +52,14 @@
 
     // Toggle a todo's completion status
     function toggleTodo(todoId) {
-        $.post(`/update_todo/${todoId}/`, function () {
+        $.post(`/update_todo/${todoId}/`, { csrfmiddlewaretoken: csrftoken }, function () {
             fetchTodos();
         });
     }
 
     // Delete a todo
     function deleteTodo(todoId) {
-        $.post(`/delete_todo/${todoId}/`, function () {
+        $.post(`/delete_todo/${todoId}/`, { csrfmiddlewaretoken: csrftoken }, function () {
             fetchTodos();
         });
     }
