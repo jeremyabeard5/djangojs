@@ -22,6 +22,11 @@ def contact(request):
     print("views.py: contact")
     return render(request, 'contact.html')
 
+## Render the about us page
+def about(request):
+    print("views.py: about")
+    return render(request, 'about.html')
+
 ## Render the services page
 def services(request):
     print("views.py: services")
