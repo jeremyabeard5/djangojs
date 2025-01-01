@@ -3,6 +3,7 @@ from django.middleware.csrf import get_token
 #from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import Todo, BlogPost, Media
+from markdown import markdown
 
 # Create your views here.
 
@@ -76,12 +77,15 @@ def delete_todo(request, id):
 def blog_list(request):
     print("views.py: blog_list")
     posts = BlogPost.objects.all().order_by('-created_at')
+    for post in posts:
+        post.content_html = markdown(post.content, extensions=['fenced_code', 'tables'])
     return render(request, 'blog_list.html', {'posts': posts})
 
 # Single blog post detail view
 def blog_detail(request, id):
     print("views.py: blog_detail")
     post = get_object_or_404(BlogPost, id=id)
+    post.content_html = markdown(post.content, extensions=['fenced_code', 'tables'])
     return render(request, 'blog_detail.html', {'post': post})
 
 def media_feed(request):

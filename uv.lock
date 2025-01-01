@@ -172,6 +172,7 @@ dependencies = [
     { name = "django-markdown-editor" },
     { name = "django-storages" },
     { name = "google-cloud-storage" },
+    { name = "markdown" },
     { name = "martor" },
 ]
 
@@ -181,6 +182,7 @@ requires-dist = [
     { name = "django-markdown-editor", specifier = ">=1.0.3" },
     { name = "django-storages", specifier = ">=1.14.4" },
     { name = "google-cloud-storage", specifier = ">=2.18.2" },
+    { name = "markdown", specifier = ">=3.5.2" },
     { name = "martor", specifier = ">=1.6.45" },
 ]
 

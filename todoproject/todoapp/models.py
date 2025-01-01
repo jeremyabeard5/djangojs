@@ -13,7 +13,7 @@ class Todo(models.Model):
     
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
-    content = MartorField() #models.TextField()
+    content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

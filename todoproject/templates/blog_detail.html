@@ -5,6 +5,6 @@
 {% block content %}
 <h1>{{ post.title }}</h1>
 <p><em>Published on {{ post.created_at|date:"F d, Y" }}</em></p>
-<div>{{ post.content|linebreaks }}</div>
+<div>{{ post.content_html|safe }}</div>
 <a href="{% url 'blog_list' %}" class="btn btn-primary mt-3">Back to Blog</a>
 {% endblock %}

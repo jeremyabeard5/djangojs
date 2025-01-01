@@ -10,4 +10,5 @@ dependencies = [
     "google-cloud-storage>=2.18.2",
     "django-markdown-editor>=1.0.3",
     "martor>=1.6.45",
+    "markdown>=3.5.2",
 ]
