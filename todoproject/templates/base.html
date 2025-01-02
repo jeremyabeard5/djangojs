@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}To-Do App{% endblock %}</title>
+    <title>{% block title %}JB App{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
+    <!--<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>-->
+    {% block head %}{% endblock %}
 </head>
 <body>
     <!-- Navbar -->
@@ -43,6 +44,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'media_feed' %}">Media</a>
                     </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'schedule' %}">Schedule</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -53,6 +57,24 @@
         {% block content %}{% endblock %}
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-4">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Follow us on:
+                        <a href="#" class="text-white">Facebook</a>,
+                        <a href="#" class="text-white">Twitter</a>,
+                        <a href="#" class="text-white">Instagram</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -62,5 +84,6 @@
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
+    {% block scripts %}{% endblock %}
 </body>
 </html>

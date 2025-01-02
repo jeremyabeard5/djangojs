@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %} 
+
+{% block head %}
+{{ block.super }}
+<style>
+    #calendar {
+        height: 650px; /* Set a suitable height */
+        width: 100%;
+        background-color: white;
+        border: 1px solid #ccc;
+    }
+</style>-->
+{% endblock %}
+
+<!--{% block title %}Schedule - To-Do App{% endblock %}-->
+
+{% block content %}
+<!-- Ensure the calendar has a defined height -->
+<div id='calendar' style="height: 650px;"></div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'fullcalendar/dist/index.global.min.js' %}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth'
+    });
+    calendar.render();
+});
+</script>
+{% endblock %}

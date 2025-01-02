@@ -15,4 +15,5 @@ urlpatterns = [
     path('blog/<int:id>/', views.blog_detail, name='blog_detail'),
     path('media/', views.media_feed, name='media_feed'),
     path('about/', views.about, name='about'),
+    path('schedule/', views.schedule, name='schedule'),
 ]

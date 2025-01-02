@@ -12,6 +12,11 @@ def index(request):
     print("views.py: index")
     return render(request, 'index.html')
 
+## Render the schedule page
+def schedule(request):
+    print("views.py: schedule")
+    return render(request, 'schedule.html')
+
 ## Render the todo page
 def todo(request):
     print("views.py: todo")

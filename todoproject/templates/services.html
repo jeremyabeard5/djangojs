@@ -1,12 +1,39 @@
 {% extends 'base.html' %}
 
-{% block title %}Services - To-Do App{% endblock %}
+{% block title %}Our Services{% endblock %}
 
 {% block content %}
-<h1>Our Services</h1>
-<ul>
-    <li>Task Management</li>
-    <li>Progress Tracking</li>
-    <li>Goal Setting</li>
-</ul>
+<h1 class="mb-4">Our Services</h1>
+<div class="row">
+    <div class="col-md-6">
+        <img src="http://www.cmegroup.com/market-regulation/images/bnr-data-investigations-459x293.jpg" alt="Data Exploration" class="img-fluid rounded mb-3">
+        <h2>Data Exploration</h2>
+        <p>Dive deep into your data with our comprehensive data exploration services to uncover hidden patterns and insights.</p>
+    </div>
+    <div class="col-md-6">
+        <img src="https://appsfortableau.infotopics.com/wp-content/uploads/2021/07/MicrosoftTeams-image-48-e1625664145264.png" alt="Analytics and Tableau Dashboarding" class="img-fluid rounded mb-3">
+        <h2>Analytics and Tableau Dashboarding</h2>
+        <p>Visualize your data effectively with custom Tableau dashboards designed to help you make informed decisions faster.</p>
+    </div>
+    <div class="col-md-6">
+        <img src="https://polzinben.github.io/images/time_series.jpg" alt="AI/ML Forecasting" class="img-fluid rounded mb-3">
+        <h2>AI/ML Forecasting and Prediction</h2>
+        <p>Leverage advanced AI and machine learning techniques to predict future trends and optimize your business strategies.</p>
+    </div>
+    <div class="col-md-6">
+        <img src="https://www.scan2cad.com/blog/wp-content/uploads/2020/04/creo.jpg" alt="CAD Modeling" class="img-fluid rounded mb-3">
+        <h2>CAD Modeling</h2>
+        <p>Transform your ideas into reality with precise CAD models, suitable for engineering, construction, and product design.</p>
+    </div>
+    <div class="col-md-6">
+        <img src="https://egeniq.com/wp-content/uploads/2022/07/frontend_webdeveloper.jpg" alt="Web Development" class="img-fluid rounded mb-3">
+        <h2>Web Development</h2>
+        <p>Create a dynamic online presence with our web development services, tailored to meet your business needs and enhance user engagement.</p>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col">
+        <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us for More Information</a>
+    </div>
+</div>
 {% endblock %}

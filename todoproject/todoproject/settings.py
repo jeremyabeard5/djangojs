@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from google.oauth2 import service_account
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -135,3 +136,10 @@ DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/{GS_MEDIA_FOLDER}/'
 
 #access key LuSgaH9tY5wD27DT9uaAc4vO44/Hsfsaxz+r5j8D
+
+STATIC_URL = '/static/'
+
+# When developing with `DEBUG = True`, Django will serve static files from this directory
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Adjust this path if your static directory is elsewhere
+]
