@@ -1,6 +1,23 @@
 from django.db import models
 
 # Create your models here.
+class ContactForm(models.Model):
+    SERVICE_CHOICES = [
+        ('data_explore', 'Data Exploration'),
+        ('analytics_viz', 'Analytics and Visualization'),
+        ('aiml_prediction', 'Prediction and Forecasting'),
+        ('cad_modeling', 'CAD Modeling'),
+        ('miscellaneous', 'Miscellaneous'),
+    ]
+    
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    service = models.CharField(max_length=100, choices=SERVICE_CHOICES)
+    message = models.TextField()
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"
+
 class Todo(models.Model):
     title = models.CharField(max_length=255)
     #description = models.TextField()

@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.middleware.csrf import get_token
+from django.core.mail import send_mail
 #from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from .models import Todo, BlogPost, Media
+from .models import Todo, BlogPost, Media, ContactForm
 from markdown import markdown
+from .forms import ContactForm
 
 # Create your views here.
 
@@ -23,9 +25,32 @@ def todo(request):
     return render(request, 'todo.html')
 
 ## Render the contact page
+#def contact(request):
+#    print("views.py: contact")
+#    return render(request, 'contact.html')
 def contact(request):
-    print("views.py: contact")
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the form data to the database
+
+            # Send email
+            send_mail(
+                'New Contact Form Submission',
+                'You have a new contact form submission from {} ({}) with the following message:\n\n{}'.format(
+                    form.cleaned_data['name'], 
+                    form.cleaned_data['email'], 
+                    form.cleaned_data['message']
+                ),
+                'your-email@gmail.com',  # From email
+                ['jeremyabeard5@gmail.com'],  # To email, can be a list to send to multiple recipients
+                fail_silently=False,
+            )
+
+            return redirect('home')  # Redirects to the homepage after successful form submission
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
 
 ## Render the about us page
 def about(request):

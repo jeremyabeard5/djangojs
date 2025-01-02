@@ -16,7 +16,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+print(f'settings.py: BASE_DIR: {BASE_DIR}')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -119,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -137,9 +137,16 @@ MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/{GS_MEDIA_FOLDER}/
 
 #access key LuSgaH9tY5wD27DT9uaAc4vO44/Hsfsaxz+r5j8D
 
-STATIC_URL = '/static/'
-
 # When developing with `DEBUG = True`, Django will serve static files from this directory
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Adjust this path if your static directory is elsewhere
+    os.path.join(BASE_DIR, 'todoapp', 'static'),  # Adjust this path if your static directory is elsewhere
 ]
+print(f'settings.py: STATICFILES_DIRS: {STATICFILES_DIRS}')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'jeremyabeard5@gmail.com'
+EMAIL_HOST_PASSWORD = 'necktfshgwjvydpu'
