@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% load static %} <1-- Loads FullCalendar package -->
+{% load static %} <!-- Loads FullCalendar package -->
 
 {% block head %}
 {{ block.super }}
-<style>
+<!--<style>
     #calendar {
         height: 650px; /* Set a suitable height */
         width: 100%;
@@ -14,7 +14,7 @@
 </style>-->
 {% endblock %}
 
-<!--{% block title %}Schedule - To-Do App{% endblock %}-->
+{% block title %}Schedule - To-Do App{% endblock %}
 
 {% block content %}
 <!-- Ensure the calendar has a defined height -->
