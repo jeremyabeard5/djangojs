@@ -38,6 +38,7 @@ pip-delete-this-directory.txt
 
 # Google Cloud config
 gcs/**
+todoproject/gcs/*
 
 # Unit test / coverage reports
 htmlcov/
